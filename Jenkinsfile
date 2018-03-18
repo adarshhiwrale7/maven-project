@@ -32,7 +32,17 @@ pipeline {
             }
             stage ("Deploy"){
                 steps{
-                    echo "First pipeline code"
+                    build "deploytodev"
+                }
+            }
+            stage ("Delivery"){
+                steps{
+                    timeout(2) {
+                    //2minutes
+                    }
+                    input 'Do you want to deploy code to production?'
+
+                    build 'deploytoprod'
                 }
             }
     
