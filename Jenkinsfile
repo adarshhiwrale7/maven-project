@@ -16,6 +16,7 @@ pipeline {
             stage ("Build") {
                 steps{
                    sh 'mvn clean package checkstyle:checkstyle'
+                }
                    post{
                        success{
                            echo "Archiving Artifacts"
@@ -27,7 +28,7 @@ pipeline {
 
                        }
                    }
-                } 
+                
             }
             stage ("Deploy"){
                 steps{
