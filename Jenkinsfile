@@ -16,7 +16,7 @@ pipeline {
             stage ("Build") {
                 steps{
                    sh 'mvn clean package checkstyle:checkstyle'
-                   post {
+                   post{
                        success{
                            echo "Archiving Artifacts"
                            archiveArtifacts '**/*.war'
